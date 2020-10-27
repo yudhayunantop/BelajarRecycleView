@@ -1,6 +1,5 @@
 package com.dicoding.picodiploma.belajarrecycleview
 
-
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -22,13 +21,15 @@ class Adapter(private val list: ArrayList<Users>) : RecyclerView.Adapter<Adapter
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
         //holder.view.lbList.text = list.get(position).name
+        holder.textHalo.text = list[position].halo
         holder.textView.text = list[position].name
         holder.textView.setOnClickListener {
-            Toast.makeText(context, list[position].name, Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, list[position].halo + list[position].name, Toast.LENGTH_SHORT).show()
         }
     }
 
     class Holder(view: View) : RecyclerView.ViewHolder(view){
         val textView = view.findViewById(R.id.lbList) as TextView
+        val textHalo = view.findViewById(R.id.lbhalo) as TextView
     }
 }
